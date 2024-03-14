@@ -18,10 +18,35 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
+        'address',
+        'phone',
+        'image',
+        'type',
+        'gender',
         'email',
+        'email_verified_at',
         'password',
     ];
+
+    public function teacher()
+    {
+        return $this->hasOne(Teacher::class);
+    }
+
+    /**
+     * Get the student record associated with the user.
+     */
+    public function student()
+    {
+        return $this->hasOne(Student::class);
+    }
+
+    public function schoolMentor()
+    {
+        return $this->hasOne(SchoolMentor::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.
