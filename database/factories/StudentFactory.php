@@ -22,10 +22,8 @@ class StudentFactory extends Factory
     {
         return [
             'user_id' => User::inRandomOrder()->first()->id,
-            'subject_id' => Subject::inRandomOrder()->first()->id,
-            'class_room_id' => ClassRoom::inRandomOrder()->first()->id,
             'guardian_id' => Guardian::inRandomOrder()->first()->id,
-            'educational_level' => $this->faker->randomElement(['Elementary', 'Middle', 'High']),
+            'educational_level' => $this->faker->randomElement(['Seventh ', 'Eighth ', 'Ninth']),
         ];
     }
 }

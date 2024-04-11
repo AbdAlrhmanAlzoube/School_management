@@ -1,6 +1,8 @@
 <?php
 
-use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\Admin\GuardianController;
+use App\Http\Controllers\Admin\TeacherController;
+use App\Http\Controllers\AdminTeacherController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
 
@@ -22,3 +24,4 @@ Route::get('/', function () {
 
 Route::resource('users', UserController::class);
 Route::resource('teachers', TeacherController::class);
+Route::resource('guardians', GuardianController::class);

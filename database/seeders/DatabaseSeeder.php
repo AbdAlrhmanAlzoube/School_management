@@ -19,7 +19,7 @@
 
                 TeachersTableSeeder::class,
 
-                 GuardiansTableSeeder::class,
+                //  GuardiansTableSeeder::class,
                  StudentsTableSeeder::class,
                  AttendancesTableSeeder::class,
                  SchoolMentorsTableSeeder::class, 

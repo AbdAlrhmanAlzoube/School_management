@@ -20,10 +20,6 @@ return new class extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class);
-            $table->foreignIdFor(Subject::class);
-          
-           
-            $table->foreignIdFor(ClassRoom::class);
             $table->foreignIdFor(Guardian::class);
             $table->string('educational_level'); 
             $table->timestamps();

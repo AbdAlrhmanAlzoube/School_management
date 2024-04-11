@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Guardian;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Database\Factories\GuardianFactory;
 use Illuminate\Database\Seeder;
 
 class GuardiansTableSeeder extends Seeder
@@ -13,7 +13,7 @@ class GuardiansTableSeeder extends Seeder
      */
     public function run(): void
     {
-        Guardian::factory()->count(8)->create();
+        Guardian::factory()->count(5)->create();
 
     }
 }
