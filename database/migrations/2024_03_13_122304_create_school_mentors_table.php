@@ -17,6 +17,7 @@ return new class extends Migration
         Schema::create('school_mentors', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class);
+            $table->string('supervising_class');
             $table->timestamps();
         });
     }

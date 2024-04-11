@@ -11,6 +11,7 @@ class SchoolMentor extends Model
 
     protected $fillable = [
        'user_id',
+       'supervising_class',
     ];
     public function user()
     {
