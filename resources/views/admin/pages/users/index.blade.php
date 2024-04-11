@@ -50,6 +50,13 @@
                                     <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary btn-sm rounded-pill pl-3">
                                         <i class="fas fa-edit"></i>
                                     </a>
+                                    <form action="{{ route('users.destroy', $user->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this user?')" style="display: inline-block;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm rounded-pill pl-3">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
                                     <!-- Add more actions here if needed -->
                                 </div>
                             </td>

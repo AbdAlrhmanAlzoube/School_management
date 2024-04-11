@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
 
@@ -20,3 +21,4 @@ Route::get('/', function () {
 });
 
 Route::resource('users', UserController::class);
+Route::resource('teachers', TeacherController::class);

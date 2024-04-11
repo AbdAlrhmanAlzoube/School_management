@@ -21,9 +21,8 @@ class TeacherFactory extends Factory
        
         return [
              'user_id' => User::inRandomOrder()->first()->id,
-            'subject_id' => Subject::inRandomOrder()->first()->id,
             'experience_years' => $this->faker->numberBetween(1, 30), // Assuming experience years range from 1 to 30
-            'subject_name' => $this->faker->sentence,
+            'age' => $this->faker->numberBetween(24, 60), // Assuming experience years range from 1 to 30
         ];
     }
 }

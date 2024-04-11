@@ -19,7 +19,6 @@ class SchoolMentorFactory extends Factory
     {
         return [
             'user_id' => User::inRandomOrder()->first()->id,
-            'attendance_id' => Attendance::inRandomOrder()->first()->id,
         ];
     }
 }

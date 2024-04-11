@@ -11,7 +11,6 @@ class SchoolMentor extends Model
 
     protected $fillable = [
        'user_id',
-    'attendance_id'
     ];
     public function user()
     {
@@ -19,9 +18,5 @@ class SchoolMentor extends Model
     }
 
     // Define the belongsTo relationship with Attendance model
-    public function attendance()
-    {
-        return $this->belongsTo(Attendance::class);
-    }
-
+    
 }
