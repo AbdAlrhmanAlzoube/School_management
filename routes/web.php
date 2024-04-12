@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\Admin\SubjectController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
@@ -30,3 +31,4 @@ Route::resource('guardians', GuardianController::class);
 
 Route::resource('school_mentors', SchoolMentorController::class);
 Route::resource('subjects', SubjectController::class);
+Route::resource('students', StudentController::class);

@@ -22,6 +22,7 @@ return new class extends Migration
             $table->foreignIdFor(User::class);
             $table->foreignIdFor(Guardian::class);
             $table->string('educational_level'); 
+            $table->date('birth_date'); 
             $table->timestamps();
         });
     }

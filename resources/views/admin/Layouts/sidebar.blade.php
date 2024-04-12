@@ -119,6 +119,29 @@
 </div>
 
 
+<!-- Student Section -->
+<div class="mdc-list-item mdc-drawer-item">
+    <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel" data-target="student-sub-menu">
+        <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">person</i>
+        Student
+        <i class="mdc-drawer-arrow material-icons">chevron_right</i>
+    </a>
+    <div class="mdc-expansion-panel" id="student-sub-menu">
+        <nav class="mdc-list mdc-drawer-submenu">
+            <div class="mdc-list-item mdc-drawer-item">
+                <a class="mdc-drawer-link" href="{{ route('students.index') }}">
+                    List students
+                </a>
+            </div>
+            <div class="mdc-list-item mdc-drawer-item">
+                <a class="mdc-drawer-link" href="{{ route('students.create') }}">
+                    Add student
+                </a>
+            </div>
+        </nav>
+    </div>
+</div>
+
 
             </nav>
         </div>
