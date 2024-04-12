@@ -24,6 +24,8 @@ class SubjectStoreRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'description' => 'required|string',
+            'teacher_id' => 'required|integer',
+
             // Add any additional fields related to subjects here
         ];
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Subject;
+use App\Models\Teacher;
 use Illuminate\Routing\Controller;
 use App\Http\Requests\SubjectStoreRequest;
 
@@ -16,7 +17,8 @@ class SubjectController extends Controller
 
     public function create()
     {
-        return view('Admin.pages.subjects.add');
+        $teachers=Teacher::all();
+        return view('admin.pages.subjects.add',compact('teachers'));
     }
 
     public function store(SubjectStoreRequest $request)
@@ -31,12 +33,13 @@ class SubjectController extends Controller
 
     public function show(Subject $subject)
     {
-        return view('Admin.pages.subjects.show', compact('subject'));
+        return view('admin.pages.subjects.show', compact('subject'));
     }
 
     public function edit(Subject $subject)
     {
-        return view('Admin.pages.subjects.edit', compact('subject'));
+        $teachers=Teacher::all();
+        return view('admin.pages.subjects.edit', compact('subject','teachers'));
     }
 
     public function update(SubjectStoreRequest $request, Subject $subject)

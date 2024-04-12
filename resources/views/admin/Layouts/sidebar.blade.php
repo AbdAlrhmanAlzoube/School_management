@@ -143,6 +143,30 @@
 </div>
 
 
+<!-- Grade Section -->
+<div class="mdc-list-item mdc-drawer-item">
+    <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel" data-target="grade-sub-menu">
+        <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">assignment</i>
+        Grade
+        <i class="mdc-drawer-arrow material-icons">chevron_right</i>
+    </a>
+    <div class="mdc-expansion-panel" id="grade-sub-menu">
+        <nav class="mdc-list mdc-drawer-submenu">
+            <div class="mdc-list-item mdc-drawer-item">
+                <a class="mdc-drawer-link" href="{{ route('grades.index') }}">
+                    List grades
+                </a>
+            </div>
+            <div class="mdc-list-item mdc-drawer-item">
+                <a class="mdc-drawer-link" href="{{ route('grades.create') }}">
+                    Add grade
+                </a>
+            </div>
+        </nav>
+    </div>
+</div>
+
+
             </nav>
         </div>
     </div>

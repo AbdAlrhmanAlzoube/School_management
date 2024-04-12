@@ -22,6 +22,16 @@
                 <label for="description">Description</label>
                 <textarea name="description" id="description" class="form-control" required></textarea>
             </div>
+            <div class="form-group">
+                <label for="teacher_id">Teacher</label>
+                <select name="teacher_id" id="teacher_id" class="form-control" required>
+                    <!-- Populate options with teachers from the database -->
+                    @foreach ($teachers as $teacher)
+                        <option value="{{ $teacher->id }}">{{ $teacher->user->first_name }}{{ $teacher->user->last_name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            
             <!-- Add more fields related to subjects here -->
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

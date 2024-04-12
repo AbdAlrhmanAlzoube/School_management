@@ -9,6 +9,7 @@
             </div>
             <div class="card-body">
                 <p><strong>Description:</strong> {{ $subject->description }}</p>
+                <p><strong>Teacher:</strong> {{ $subject->teacher->user->first_name }} {{ $subject->teacher->user->last_name }}</p> <!-- Display teacher's name -->
                 <!-- Add any additional fields related to subjects here -->
             </div>
         </div>

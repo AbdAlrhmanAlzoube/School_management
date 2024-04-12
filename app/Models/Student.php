@@ -27,7 +27,9 @@ class Student extends Model
         return $this->belongsTo(Guardian::class);
     }
 
-    // Define the hasMany relationship with Grade model
-   
+    public function grades()
+    {
+        return $this->hasMany(Grade::class);
+    }
 
 }
