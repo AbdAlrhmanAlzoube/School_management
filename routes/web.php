@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ClassRoomController;
 use App\Http\Controllers\Admin\GradeController;
 use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\Admin\SubjectController;
@@ -34,3 +35,4 @@ Route::resource('school_mentors', SchoolMentorController::class);
 Route::resource('subjects', SubjectController::class);
 Route::resource('students', StudentController::class);
 Route::resource('grades', GradeController::class);
+Route::resource('class_rooms', ClassRoomController::class);
