@@ -18,7 +18,6 @@ class SubjectFactory extends Factory
         return [
             'name' => $this->faker->word,
             'description' => $this->faker->paragraph,
-            'lesson_time' => $this->faker->dateTimeBetween('-1 year', '+1 year'), // Generate a random date within the last year and the next year
         ];
     }
 }

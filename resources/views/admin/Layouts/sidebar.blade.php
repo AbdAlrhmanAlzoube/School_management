@@ -95,6 +95,31 @@
                     </div>
                 </div>
 
+                <!-- Subject Section -->
+<div class="mdc-list-item mdc-drawer-item">
+    <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel" data-target="subject-sub-menu">
+        <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">subject</i>
+        Subject
+        <i class="mdc-drawer-arrow material-icons">chevron_right</i>
+    </a>
+    <div class="mdc-expansion-panel" id="subject-sub-menu">
+        <nav class="mdc-list mdc-drawer-submenu">
+            <div class="mdc-list-item mdc-drawer-item">
+                <a class="mdc-drawer-link" href="{{ route('subjects.index') }}">
+                    List subjects
+                </a>
+            </div>
+            <div class="mdc-list-item mdc-drawer-item">
+                <a class="mdc-drawer-link" href="{{ route('subjects.create') }}">
+                    Add subject
+                </a>
+            </div>
+        </nav>
+    </div>
+</div>
+
+
+
             </nav>
         </div>
     </div>

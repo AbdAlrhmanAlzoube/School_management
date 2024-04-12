@@ -9,16 +9,10 @@
     {
         use HasFactory;
 
-        protected $fillable = ['teacher_id', 'name', 'description','lesson_time'];
+        protected $fillable = [ 'name', 'description'];
 
-        public function teacher()
-        {
-            return $this->belongsTo(Teacher::class);
-        }
+      
 
-        // Define the belongsToMany relationship with Grade model
-        public function grades()
-        {
-            return $this->belongsToMany(Grade::class);
-        }
+        
+       
     }
