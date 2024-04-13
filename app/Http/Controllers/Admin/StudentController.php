@@ -23,22 +23,7 @@ class StudentController extends Controller
         return view('Admin.pages.students.add', compact('guardians'));
     }
 
-    // public function store(StudentStoreRequest $request)
-    // {
-    //     $validatedData = $request->validated();
-        
-    //     // Create a new student
-    //     $user = User::create($validatedData);
-    //     $student = Student::create([
-    //         'user_id' => $user->id,
-    //         'educational_level' => $validatedData['educational_level'],
-    //         'guardian_id' => $validatedData['guardian_id'],
-
-    //         'birth_date' => $validatedData['birth_date'],
-    //     ]);
-        
-    //     return redirect()->route('students.index')->with('success', 'Student created successfully');
-    // }
+   
     public function store(StudentStoreRequest $request)
     {
         $validatedData = $request->validated();

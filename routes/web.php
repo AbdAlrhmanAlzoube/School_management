@@ -1,12 +1,12 @@
 <?php
 
 use App\Http\Controllers\Admin\ClassRoomController;
+use App\Http\Controllers\Admin\DailyScheduleController;
 use App\Http\Controllers\Admin\GradeController;
 use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\Admin\SubjectController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\AdminTeacherController;
 use App\Http\Controllers\Admin\TeacherController;
 use App\Http\Controllers\Admin\GuardianController;
 use App\Http\Controllers\Admin\SchoolMentorController;
@@ -36,3 +36,4 @@ Route::resource('subjects', SubjectController::class);
 Route::resource('students', StudentController::class);
 Route::resource('grades', GradeController::class);
 Route::resource('class_rooms', ClassRoomController::class);
+Route::resource('daily_schedules', DailyScheduleController::class);

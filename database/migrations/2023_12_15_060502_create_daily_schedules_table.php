@@ -1,27 +1,28 @@
 <?php
 
 use App\Models\ClassRoom;
-use App\Models\SchoolMentor;
-use App\Models\Student;
+use App\Models\Course;
+use App\Models\Subject;
+use App\Models\Teacher;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAttendancesTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('attendances', function (Blueprint $table) {
+        Schema::create('daily_schedules', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(SchoolMentor::class);
+            $table->string('day_name');
+            $table->foreignIdFor(Subject::class);
+            $table->foreignIdFor(Teacher::class);
             $table->foreignIdFor(ClassRoom::class);
-            $table->foreignIdFor(Student::class);
-
-            $table->date('attendance_date');
-            $table->boolean('attendance_status');
+            $table->string('start_time');
+            $table->string('end_time');
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class CreateAttendancesTable extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('attendances');
+        Schema::dropIfExists('daily_schedules');
     }
-}
+};

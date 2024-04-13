@@ -191,6 +191,37 @@
 </div>
 
 
+<!-- Daily Schedule Section -->
+
+<div class="mdc-list-item mdc-drawer-item">
+    <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel" data-target="daily-schedule-sub-menu">
+        <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">calendar_today</i>
+        Daily Schedule
+        <i class="mdc-drawer-arrow material-icons">chevron_left</i>
+    </a>
+    <div class="mdc-expansion-panel" id="daily-schedule-sub-menu">
+        <nav class="mdc-list mdc-drawer-submenu">
+            <div class="mdc-list-item mdc-drawer-item">
+                <a class="mdc-drawer-link" href="{{ route('daily_schedules.index') }}">
+                    List Schedules
+                </a>
+            </div>
+            <div class="mdc-list-item mdc-drawer-item">
+                <a class="mdc-drawer-link" href="{{ route('daily_schedules.create') }}">
+                    Add Schedule
+                </a>
+            </div>
+        </nav>
+    </div>
+</div>
+
+
+
+
+
+
+
+
             </nav>
         </div>
     </div>

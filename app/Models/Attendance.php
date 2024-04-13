@@ -8,25 +8,27 @@ use Illuminate\Database\Eloquent\Model;
 class Attendance extends Model
 {
     use HasFactory;
+
     protected $fillable = [
-    'attendance_date',
-    'attendance_status' 
+        'student_id',
+        'school_mentor_id',
+        'class_room_id',
+        'attendance_date',
+        'attendance_status' 
     ];
 
-    public function teacher()
-    {
-        return $this->belongsTo(Teacher::class);
-    }
-
-    // Define the belongsTo relationship with Student model
     public function student()
     {
         return $this->belongsTo(Student::class);
     }
 
-    // Define the belongsTo relationship with SchoolMentor model
     public function schoolMentor()
     {
         return $this->belongsTo(SchoolMentor::class);
+    }
+
+    public function classRoom()
+    {
+        return $this->belongsTo(ClassRoom::class);
     }
 }
