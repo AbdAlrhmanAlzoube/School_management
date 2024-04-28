@@ -14,13 +14,13 @@ class StudentController extends Controller
     public function index()
     {
         $students = Student::all();
-        return view('Admin.pages.students.index', compact('students'));
+        return view('Dashboard.Admin.pages.students.index', compact('students'));
     }
 
     public function create()
     {
         $guardians = Guardian::all();
-        return view('Admin.pages.students.add', compact('guardians'));
+        return view('Dashboard.Admin.pages.students.add', compact('guardians'));
     }
 
    
@@ -42,13 +42,13 @@ class StudentController extends Controller
     
     public function show(Student $student)
     {
-        return view('Admin.pages.students.show', compact('student'));
+        return view('Dashboard.Admin.pages.students.show', compact('student'));
     }
 
     public function edit(Student $student)
 {
     $guardians = Guardian::all();
-    return view('Admin.pages.students.edit', compact('student', 'guardians'));
+    return view('Dashboard.Admin.pages.students.edit', compact('student', 'guardians'));
 }
 
     public function update(StudentStoreRequest $request, Student $student)

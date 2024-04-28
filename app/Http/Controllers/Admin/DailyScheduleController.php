@@ -14,7 +14,7 @@ class DailyScheduleController extends Controller
     public function index()
     {
         $dailySchedules = DailySchedule::all();
-        return view('Admin.pages.daily_schedules.index', compact('dailySchedules'));
+        return view('Dashboard.Admin.pages.daily_schedules.index', compact('dailySchedules'));
     }
 
     public function create()
@@ -24,7 +24,7 @@ class DailyScheduleController extends Controller
         $teachers = Teacher::all();
         $classrooms = ClassRoom::all();
         
-        return view('Admin.pages.daily_schedules.add', compact('subjects', 'teachers', 'classrooms'));
+        return view('Dashboard.Admin.pages.daily_schedules.add', compact('subjects', 'teachers', 'classrooms'));
     }
 
     public function store(Request $request)
@@ -36,12 +36,13 @@ class DailyScheduleController extends Controller
             'class_room_id' => ['required', 'integer', 'exists:class_rooms,id'],
             'start_time' => ['required', 'string', 'max:255'],
             'end_time' => ['required', 'string', 'max:255'],
+            'educational_level' => ['required', 'string', 'max:255'],
         ]);
         
         // Create a new daily schedule
         $dailySchedule = DailySchedule::create($validatedData);
         
-        return redirect()->route('daily_schedules.index')->with('success', 'Daily schedule created successfully');
+        return redirect()->route('Dashboard.daily_schedules.index')->with('success', 'Daily schedule created successfully');
     }
     
     public function update(Request $request, DailySchedule $dailySchedule)
@@ -53,12 +54,13 @@ class DailyScheduleController extends Controller
             'class_room_id' => ['required', 'integer', 'exists:class_rooms,id'],
             'start_time' => ['required', 'string', 'max:255'],
             'end_time' => ['required', 'string', 'max:255'],
+            'educational_level' => ['required', 'string', 'max:255'],
         ]);
         
         // Update the daily schedule
         $dailySchedule->update($validatedData);
         
-        return redirect()->route('daily_schedules.index')->with('success', 'Daily schedule updated successfully');
+        return redirect()->route('Dashboard.daily_schedules.index')->with('success', 'Daily schedule updated successfully');
     }
     
 
@@ -75,7 +77,7 @@ class DailyScheduleController extends Controller
     
     public function show(DailySchedule $dailySchedule)
     {
-        return view('admin.pages.daily_schedules.show', compact('dailySchedule'));
+        return view('Dashboard.admin.pages.daily_schedules.show', compact('dailySchedule'));
     }
 
     public function destroy(DailySchedule $dailySchedule)

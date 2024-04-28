@@ -13,12 +13,12 @@ class TeacherController extends Controller
     public function index()
     {
         $teachers = Teacher::all();
-        return view('Admin.pages.teachers.index', compact('teachers'));
+        return view('Dashboard.Admin.pages.teachers.index', compact('teachers'));
     }
 
     public function create()
     {
-        return view('Admin.pages.teachers.add');
+        return view('Dashboard.Admin.pages.teachers.add');
     }
 
     public function store(TeacherStoreRequest $request)
@@ -44,7 +44,7 @@ class TeacherController extends Controller
 
     public function edit(Teacher $teacher)
     {
-        return view('Admin.pages.teachers.edit', compact('teacher'));
+        return view('Dashboard.Admin.pages.teachers.edit', compact('teacher'));
     }
 
     public function update(TeacherStoreRequest $request, Teacher $teacher)

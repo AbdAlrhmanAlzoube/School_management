@@ -12,12 +12,12 @@ class GuardianController extends Controller
     public function index()
     {
         $guardians = Guardian::all();
-        return view('Admin.pages.guardians.index', compact('guardians'));
+        return view('Dashboard.Admin.pages.guardians.index', compact('guardians'));
     }
 
     public function create()
     {
-        return view('Admin.pages.guardians.add');
+        return view('Dashboard.Admin.pages.guardians.add');
     }
 
     public function store(GuardianStoreRequest $request)
@@ -31,17 +31,18 @@ class GuardianController extends Controller
             // Add any other fields related to guardianship here
         ]);
         
+        
         return redirect()->route('guardians.index')->with('success', 'Guardian created successfully');
     }
 
     public function show(Guardian $guardian)
     {
-        return view('Admin.pages.guardians.show', compact('guardian'));
+        return view('Dashboard.Admin.pages.guardians.show', compact('guardian'));
     }
 
     public function edit(Guardian $guardian)
     {
-        return view('Admin.pages.guardians.edit', compact('guardian'));
+        return view('Dashboard.Admin.pages.guardians.edit', compact('guardian'));
     }
 
     public function update(GuardianStoreRequest $request, Guardian $guardian)

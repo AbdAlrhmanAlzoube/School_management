@@ -12,13 +12,13 @@ class SubjectController extends Controller
     public function index()
     {
         $subjects = Subject::all();
-        return view('admin.pages.subjects.index', compact('subjects'));
+        return view('Dashboard.admin.pages.subjects.index', compact('subjects'));
     }
 
     public function create()
     {
         $teachers=Teacher::all();
-        return view('admin.pages.subjects.add',compact('teachers'));
+        return view('Dashboard.admin.pages.subjects.add',compact('teachers'));
     }
 
     public function store(SubjectStoreRequest $request)
@@ -33,13 +33,13 @@ class SubjectController extends Controller
 
     public function show(Subject $subject)
     {
-        return view('admin.pages.subjects.show', compact('subject'));
+        return view('Dashboard.admin.pages.subjects.show', compact('subject'));
     }
 
     public function edit(Subject $subject)
     {
         $teachers=Teacher::all();
-        return view('admin.pages.subjects.edit', compact('subject','teachers'));
+        return view('Dashboard.admin.pages.subjects.edit', compact('subject','teachers'));
     }
 
     public function update(SubjectStoreRequest $request, Subject $subject)

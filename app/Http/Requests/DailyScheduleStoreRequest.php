@@ -28,6 +28,7 @@ class DailyScheduleStoreRequest extends FormRequest
             'class_room_id' => ['required', 'integer', 'exists:class_rooms,id'], // Assuming class_room_id is integer and exists in class_rooms table
             'start_time' => ['required', 'string', 'max:255'],
             'end_time' => ['required', 'string', 'max:255'],
+            'educational_level' => ['required', 'string', 'max:255'],
         ];
     }
 }

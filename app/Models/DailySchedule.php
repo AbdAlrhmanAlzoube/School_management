@@ -14,6 +14,8 @@ class DailySchedule extends Model
      */
     protected $fillable = [
         'day_name',
+        'educational_level',
+
         'subject_id',
         'teacher_id',
         'class_room_id',

@@ -12,14 +12,14 @@ class SchoolMentorController extends Controller
     public function index()
     {
         $schoolMentors = SchoolMentor::all();
-        return view('Admin.pages.school_mentors.index', compact('schoolMentors'));
+        return view('Dashboard.Admin.pages.school_mentors.index', compact('schoolMentors'));
     }
 
     public function create()
     {
         $supervisingClasses = ['seventh', 'eighth', 'ninth'];
 
-        return view('Admin.pages.school_mentors.add', compact('supervisingClasses'));
+        return view('Dashboard.Admin.pages.school_mentors.add', compact('supervisingClasses'));
     }
 
     public function store(SchoolMentorStoreRequest $request)
@@ -44,7 +44,7 @@ class SchoolMentorController extends Controller
 
     public function edit(SchoolMentor $schoolMentor)
     {
-        return view('Admin.pages.school_mentors.edit', compact('schoolMentor'));
+        return view('Dashboard.Admin.pages.school_mentors.edit', compact('schoolMentor'));
     }
 
     public function update(SchoolMentorStoreRequest $request, SchoolMentor $schoolMentor)

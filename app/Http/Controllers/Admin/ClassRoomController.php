@@ -11,12 +11,12 @@ class ClassRoomController extends Controller
     public function index()
     {
         $classRooms = ClassRoom::all();
-        return view('admin.pages.class_rooms.index', compact('classRooms'));
+        return view('Dashboard.admin.pages.class_rooms.index', compact('classRooms'));
     }
 
     public function create()
     {
-        return view('admin.pages.class_rooms.add');
+        return view('Dashboard.admin.pages.class_rooms.add');
     }
 
     public function store(Request $request)
@@ -33,12 +33,12 @@ class ClassRoomController extends Controller
     }
     public function show(ClassRoom $classRoom)
 {
-    return view('admin.pages.class_rooms.show', compact('classRoom'));
+    return view('Dashboard.admin.pages.class_rooms.show', compact('classRoom'));
 }
 
     public function edit(ClassRoom $classRoom)
     {
-        return view('admin.pages.class_rooms.edit', compact('classRoom'));
+        return view('Dashboard.admin.pages.class_rooms.edit', compact('classRoom'));
     }
 
     public function update(Request $request, ClassRoom $classRoom)

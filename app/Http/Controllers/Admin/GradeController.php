@@ -14,7 +14,7 @@ class GradeController extends Controller
     public function index()
     {
         $grades = Grade::all();
-        return view('admin.pages.grades.index', compact('grades'));
+        return view('Dashboard.admin.pages.grades.index', compact('grades'));
     }
 
     public function create()
@@ -22,7 +22,7 @@ class GradeController extends Controller
         $teachers = Teacher::all();
         $students = Student::all();
         $subjects = Subject::all();
-        return view('admin.pages.grades.add', compact('teachers', 'students', 'subjects'));
+        return view('Dashboard.admin.pages.grades.add', compact('teachers', 'students', 'subjects'));
     }
 
     public function store(Request $request)
@@ -41,7 +41,7 @@ class GradeController extends Controller
 
     public function show(Grade $grade)
     {
-        return view('admin.pages.grades.show', compact('grade'));
+        return view('Dashboard.admin.pages.grades.show', compact('grade'));
     }
 
     public function edit(Grade $grade)
@@ -49,7 +49,7 @@ class GradeController extends Controller
         $teachers = Teacher::all();
         $students = Student::all();
         $subjects = Subject::all();
-        return view('admin.pages.grades.edit', compact('grade', 'teachers', 'students', 'subjects'));
+        return view('Dashboard.admin.pages.grades.edit', compact('grade', 'teachers', 'students', 'subjects'));
     }
 
     public function update(Request $request, Grade $grade)

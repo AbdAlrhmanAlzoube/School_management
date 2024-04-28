@@ -18,6 +18,8 @@ return new class extends Migration
         Schema::create('daily_schedules', function (Blueprint $table) {
             $table->id();
             $table->string('day_name');
+            $table->string('educational_level');
+
             $table->foreignIdFor(Subject::class);
             $table->foreignIdFor(Teacher::class);
             $table->foreignIdFor(ClassRoom::class);
