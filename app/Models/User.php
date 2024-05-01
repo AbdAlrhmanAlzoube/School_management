@@ -26,4 +26,10 @@
             'password',
             'remember_token',
         ];
+
+        public function teacher()
+        {
+            return $this->hasMany(Teacher::class);
+        }
+        
     }

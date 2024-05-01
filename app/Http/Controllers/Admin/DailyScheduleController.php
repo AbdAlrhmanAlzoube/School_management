@@ -6,7 +6,7 @@ use App\Models\Subject;
 use App\Models\Teacher;
 use App\Models\ClassRoom;
 use App\Models\DailySchedule;
-use Illuminate\Http\Request; // Correct the import statement
+use Illuminate\Http\Request; 
 use Illuminate\Routing\Controller;
 
 class DailyScheduleController extends Controller
@@ -42,7 +42,7 @@ class DailyScheduleController extends Controller
         // Create a new daily schedule
         $dailySchedule = DailySchedule::create($validatedData);
         
-        return redirect()->route('Dashboard.daily_schedules.index')->with('success', 'Daily schedule created successfully');
+        return redirect()->route('daily_schedules.index')->with('success', 'Daily schedule created successfully');
     }
     
     public function update(Request $request, DailySchedule $dailySchedule)
@@ -60,7 +60,7 @@ class DailyScheduleController extends Controller
         // Update the daily schedule
         $dailySchedule->update($validatedData);
         
-        return redirect()->route('Dashboard.daily_schedules.index')->with('success', 'Daily schedule updated successfully');
+        return redirect()->route('daily_schedules.index')->with('success', 'Daily schedule updated successfully');
     }
     
 

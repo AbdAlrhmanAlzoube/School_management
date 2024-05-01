@@ -3,10 +3,13 @@
 @section('teacher_content')
 <div class="container">
     <h1>Edit Grade</h1>
+
+    <!-- Form for editing a grade -->
     <form action="{{ route('teacher_grades.update', $grade->id) }}" method="POST">
         @csrf
-        @method('PUT')
+        @method('PUT') <!-- Use the correct HTTP method for updating -->
 
+        <!-- Display validation errors if any -->
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -17,7 +20,7 @@
             </div>
         @endif
 
-        <!-- Form fields for editing a grade -->
+        <!-- Teacher selection field -->
         <div class="form-group">
             <label for="teacher_id">Teacher</label>
             <select name="teacher_id" id="teacher_id" class="form-control" required>
@@ -29,6 +32,7 @@
             </select>
         </div>
 
+        <!-- Student selection field -->
         <div class="form-group">
             <label for="student_id">Student</label>
             <select name="student_id" id="student_id" class="form-control" required>
@@ -40,23 +44,26 @@
             </select>
         </div>
 
+        <!-- Subject selection field -->
         <div class="form-group">
             <label for="subject_id">Subject</label>
             <select name="subject_id" id="subject_id" class="form-control" required>
                 @foreach($subjects as $subject)
                     <option value="{{ $subject->id }}" {{ $grade->subject_id == $subject->id ? 'selected' : '' }}>
-                        {{ $subject.name }}
+                        {{ $subject->name }}
                     </option>
                 @endforeach
             </select>
         </div>
 
+        <!-- Mark input field -->
         <div class="form-group">
             <label for="mark">Mark</label>
-            <input type="text" name="mark" id="mark" class="form-control" required>
+            <input type="text" name="mark" id="mark" class="form-control" required value="{{ $grade->mark }}">
         </div>
 
-        <button type="submit" class="btn btn-primary">Update</button>
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary">Update Grade</button>
     </form>
 </div>
 @endsection
