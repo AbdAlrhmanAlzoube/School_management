@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\GradeController;
 use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\Admin\SubjectController;
 use App\Http\Controllers\Admin\TeacherController;
+use App\Http\Controllers\Guardian\GuardianChildController;
 use App\Http\Controllers\Admin\GuardianController;
 use App\Http\Controllers\Admin\ClassRoomController;
 use App\Http\Controllers\Teacher\AddGradeController;
@@ -53,3 +54,14 @@ Route::resource('/attendances', AttendanceController::class);
 Route::get('/teacher_students', [GetStudentController::class, 'index'])->name('teacher_students.index');
 Route::get('/teacher_daily_schedules', [GetDailyScheduleController::class, 'index'])->name('teacher_daily_schedules.index');
 Route::resource('teacher_grades', AddGradeController::class);
+
+
+Route::get('/guardian', function () {
+     return view('Dashboard.guardians.guardian_dashboard');
+ });
+
+ Route::resource('children', GuardianChildController::class)->except('show');
+ Route::get('/children/{child}', [GuardianChildController::class, 'show'])->name('children.show');
+
+
+ 
