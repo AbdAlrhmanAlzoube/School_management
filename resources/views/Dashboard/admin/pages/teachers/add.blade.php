@@ -5,6 +5,16 @@
         <h1>Add Teacher</h1>
         <form action="{{ route('teachers.store') }}" method="POST">
             @csrf
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        
             <div class="form-group">
                 <label for="first_name">First Name</label>
                 <input type="text" name="first_name" id="first_name" class="form-control" required>
@@ -42,11 +52,11 @@
             </div>
             <div class="form-group">
                 <label for="experience_years">Experience Years</label>
-                <input type="number" name="experience_years" id="experience_years" class="form-control" required>
+                <input type="number" name="experience_years" id="experience_years" class="form-control" min="3" max="30" required>
             </div>
             <div class="form-group">
                 <label for="age">Age</label>
-                <input type="number" name="age" id="age" class="form-control" required>
+                <input type="number" name="age" id="age" class="form-control" min="22" max="60" required>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

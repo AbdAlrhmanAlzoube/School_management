@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\SchoolMentor;
 use Illuminate\Routing\Controller;
 use App\Http\Requests\SchoolMentorStoreRequest;
+use App\Http\Requests\SchoolMentorUpdateRequest;
 
 class SchoolMentorController extends Controller
 {
@@ -39,7 +40,7 @@ class SchoolMentorController extends Controller
 
     public function show(SchoolMentor $schoolMentor)
     {
-        return view('Admin.pages.school_mentors.show', compact('schoolMentor'));
+        return view('Dashboard.Admin.pages.school_mentors.show', compact('schoolMentor'));
     }
 
     public function edit(SchoolMentor $schoolMentor)
@@ -47,7 +48,7 @@ class SchoolMentorController extends Controller
         return view('Dashboard.Admin.pages.school_mentors.edit', compact('schoolMentor'));
     }
 
-    public function update(SchoolMentorStoreRequest $request, SchoolMentor $schoolMentor)
+    public function update(SchoolMentorUpdateRequest $request, SchoolMentor $schoolMentor)
     {
         $validatedData = $request->validated();
         

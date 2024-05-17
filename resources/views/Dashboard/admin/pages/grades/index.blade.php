@@ -3,9 +3,7 @@
 @section('content')
     <div class="container">
         <h1>All Grades</h1>
-        @if($grades->isEmpty())
-            <p>No grades found.</p>
-        @else
+      
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -44,6 +42,6 @@
                     @endforeach
                 </tbody>
             </table>
-        @endif
+        
     </div>
 @endsection

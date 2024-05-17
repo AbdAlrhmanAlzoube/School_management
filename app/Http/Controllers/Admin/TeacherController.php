@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Teacher;
 use Illuminate\Routing\Controller;
 use App\Http\Requests\TeacherStoreRequest;
+use App\Http\Requests\TeacherUpdateRequest;
 
 class TeacherController extends Controller
 {
@@ -39,7 +40,7 @@ class TeacherController extends Controller
 
     public function show(Teacher $teacher)
     {
-        return view('Admin.pages.teachers.show', compact('teacher'));
+        return view('Dashboard.Admin.pages.teachers.show', compact('teacher'));
     }
 
     public function edit(Teacher $teacher)
@@ -47,7 +48,7 @@ class TeacherController extends Controller
         return view('Dashboard.Admin.pages.teachers.edit', compact('teacher'));
     }
 
-    public function update(TeacherStoreRequest $request, Teacher $teacher)
+    public function update(TeacherUpdateRequest $request, Teacher $teacher)
     {
         $validatedData = $request->validated();
         

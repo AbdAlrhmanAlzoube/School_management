@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\UserStoreRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\UserStoreRequest;
+use App\Http\Requests\UserUpdateRequest;
 
 class UserController extends Controller
 {
@@ -44,7 +45,7 @@ class UserController extends Controller
         return view('Dashboard.Admin.pages.users.edit', compact('user'));
     }
 
-    public function update(UserStoreRequest $request, User $user)
+    public function update(UserUpdateRequest $request, User $user)
     {
         $validatedData = $request->validated();
 

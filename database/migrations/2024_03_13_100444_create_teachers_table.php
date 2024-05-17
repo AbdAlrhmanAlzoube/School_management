@@ -17,7 +17,7 @@ return new class extends Migration
         Schema::create('teachers', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class);
-            $table->integer('experience_years');
+            $table->string('experience_years');
             $table->string('age');
             
             $table->timestamps();

@@ -177,7 +177,7 @@
     <div class="mdc-expansion-panel" id="class-room-sub-menu">
         <nav class="mdc-list mdc-drawer-submenu">
             <div class="mdc-list-item mdc-drawer-item">
-                <a class="mdc-drawer-link" href="{{ route('class_rooms.index') }}">
+                <a class="mdc-drawer-link" href="{{ route('get_class_rooms') }}">
                     List Class Rooms
                 </a>
             </div>

@@ -6,6 +6,16 @@
         <form action="{{ route('teachers.update', $teacher->id) }}" method="POST">
             @csrf
             @method('PUT')
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        
             <div class="form-group">
                 <label for="first_name">First Name</label>
                 <input type="text" name="first_name" id="first_name" class="form-control" value="{{ $teacher->user->first_name }}" required>
@@ -43,11 +53,11 @@
             </div>
             <div class="form-group">
                 <label for="experience_years">Experience Years</label>
-                <input type="number" name="experience_years" id="experience_years" class="form-control" value="{{ $teacher->experience_years }}" required>
+                <input type="number" name="experience_years" id="experience_years" class="form-control" min="1" max="30" value="{{ $teacher->experience_years }}" required>
             </div>
             <div class="form-group">
                 <label for="age">Age</label>
-                <input type="number" name="age" id="age" class="form-control" value="{{ $teacher->age }}" required>
+                <input type="number" name="age" id="age" class="form-control"   value="{{ $teacher->age }}" required>
             </div>
             <button type="submit" class="btn btn-primary">Update</button>
         </form>

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TeacherStoreRequest extends FormRequest
+class TeacherUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,16 +22,16 @@ class TeacherStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'first_name' => ['required', 'string', 'max:255'],
-            'last_name' => ['required', 'string', 'max:255'],
-            'address' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'max:255'],
+            'first_name' => [ 'string', 'max:255'],
+            'last_name' => [ 'string', 'max:255'],
+            'address' => [ 'string', 'max:255'],
+            'phone' => [ 'string', 'max:255'],
+            'email' => [ 'string', 'email', 'max:255', 'unique:users'],
+            'password' => [ 'string', 'min:8', 'max:255'],
             'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
             'gender' => ['nullable', 'string', 'max:255'],
-            'experience_years' => ['required', 'integer','max:30','min:1'],
-            'age' => ['required', 'string', 'max:255','max:60'],
+            'experience_years' => [ 'integer','min:1','max:30'],
+            'age' => [ 'string', 'max:255','max:60'],
         ];
     }
 }

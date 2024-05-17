@@ -3,9 +3,7 @@
 @section('content')
     <div class="container">
         <h1>All Class Rooms</h1>
-        @if($classRooms->isEmpty())
-            <p>No class rooms found.</p>
-        @else
+       
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -42,6 +40,6 @@
                     @endforeach
                 </tbody>
             </table>
-        @endif
+        
     </div>
 @endsection

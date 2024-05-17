@@ -1,23 +1,24 @@
 <?php
 
-use App\Http\Controllers\SchooMentor\OperationController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClassRoomController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Teacher\MyController;
 use App\Http\Controllers\Admin\GradeController;
 use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\Admin\SubjectController;
 use App\Http\Controllers\Admin\TeacherController;
-use App\Http\Controllers\Guardian\GuardianChildController;
 use App\Http\Controllers\Admin\GuardianController;
-use App\Http\Controllers\Admin\ClassRoomController;
 use App\Http\Controllers\Teacher\AddGradeController;
 use App\Http\Controllers\Teacher\DashboardController;
 use App\Http\Controllers\Admin\SchoolMentorController;
 use App\Http\Controllers\Teacher\AttendanceController;
 use App\Http\Controllers\Teacher\GetStudentController;
 use App\Http\Controllers\Admin\DailyScheduleController;
+use App\Http\Controllers\SchooMentor\OperationController;
+use App\Http\Controllers\Guardian\GuardianChildController;
 use App\Http\Controllers\Teacher\GetDailyScheduleController;
+use App\Http\Controllers\Student\DailyScheduleStudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,7 @@ use App\Http\Controllers\Teacher\GetDailyScheduleController;
 |
 */
 
-Route::get('/admin_dashboard', function () {
+Route::get('/', function () {
      return view('Dashboard.Admin.admin_dashboard');
 });
 
@@ -42,7 +43,7 @@ Route::resource('school_mentors', SchoolMentorController::class);
 Route::resource('subjects', SubjectController::class);
 Route::resource('students', StudentController::class);
 Route::resource('grades', GradeController::class);
-Route::resource('class_rooms', ClassRoomController::class);
+Route::resource('class_rooms', \App\Http\Controllers\Admin\ClassRoomController::class);
 Route::resource('daily_schedules', DailyScheduleController::class);
 
 
@@ -50,7 +51,7 @@ Route::resource('daily_schedules', DailyScheduleController::class);
 
 
 
-Route::get('/teacher_dashboard',[DashboardController::class, 'index']);
+Route::get('/teacher_dashboard', [DashboardController::class, 'index']);
 Route::resource('/attendances', AttendanceController::class);
 Route::get('/teacher_students', [GetStudentController::class, 'index'])->name('teacher_students.index');
 Route::get('/teacher_daily_schedules', [GetDailyScheduleController::class, 'index'])->name('teacher_daily_schedules.index');
@@ -59,25 +60,33 @@ Route::resource('teacher_grades', AddGradeController::class);
 
 Route::get('/guardian', function () {
      return view('Dashboard.guardians.guardian_dashboard');
- });
+});
 
- Route::resource('children', GuardianChildController::class)->except('show');
- Route::get('/children/{child}', [GuardianChildController::class, 'show'])->name('children.show');
+Route::resource('children', GuardianChildController::class)->except('show');
+Route::get('/children/{child}', [GuardianChildController::class, 'show'])->name('children.show');
 
 
-//  Route::get('/schoolmentors', function () {
-//      return view('Dashboard.schoolmentors.dashboard');
-//  });
 
- Route::controller(OperationController::class)->group(function (){
-Route::get('/dashboardSchoolMentor','getDashboard');
-Route::get('/get_attendances','getAttendance')->name('get_attendances');
-Route::get('/get_teachers','getTeacher')->name('get_teachers');
-Route::get('/get_guardians','getGuardian')->name('get_guardians');
-Route::get('/get_subjects','getSubject')->name('get_subjects');
-Route::get('/get_students','getStudent')->name('get_students');
-Route::get('/get_grades','getGrade')->name('get_grades');
-Route::get('/get_class_rooms','getClassRoom')->name('get_class_rooms');
-Route::get('/get_daily_schedules','getDailySchedules')->name('get_daily_schedules');
 
- }) ;
+Route::controller(OperationController::class)->group(function () {
+     Route::get('/dashboardSchoolMentor', 'getDashboard');
+     Route::get('/get_attendances', 'getAttendance')->name('get_attendances');
+     Route::get('/get_teachers', 'getTeacher')->name('get_teachers');
+     Route::get('/get_guardians', 'getGuardian')->name('get_guardians');
+     Route::get('/get_subjects', 'getSubject')->name('get_subjects');
+     Route::get('/get_students', 'getStudent')->name('get_students');
+     Route::get('/get_grades', 'getGrade')->name('get_grades');
+    Route::get('/get_class_rooms', 'getClassRoom')->name('get_class_rooms');
+     Route::get('/get_daily_schedules', 'getDailySchedules')->name('get_daily_schedules');
+
+
+});
+
+
+Route::get('/dashboard_student',function()
+{
+     return view('Dashboard.student.dashborad');
+});
+
+Route::get('student_daily_schedules',[DailyScheduleStudentController::class, 'dailySchedule'])
+->name('student_daily_schedules');
