@@ -3,6 +3,15 @@
 @section('teacher_content')
 <div class="container">
     <h1>All Grades</h1>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     @if($grades->isEmpty())
         <p>No grades found.</p>
     @else
@@ -17,6 +26,7 @@
                     <th>Actions</th>
                 </tr>
             </thead>
+         
             <tbody>
                 @foreach($grades as $grade)
                     <tr>

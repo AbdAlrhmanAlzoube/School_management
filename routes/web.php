@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SchooMentor\OperationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Teacher\MyController;
@@ -64,4 +65,19 @@ Route::get('/guardian', function () {
  Route::get('/children/{child}', [GuardianChildController::class, 'show'])->name('children.show');
 
 
- 
+//  Route::get('/schoolmentors', function () {
+//      return view('Dashboard.schoolmentors.dashboard');
+//  });
+
+ Route::controller(OperationController::class)->group(function (){
+Route::get('/dashboardSchoolMentor','getDashboard');
+Route::get('/get_attendances','getAttendance')->name('get_attendances');
+Route::get('/get_teachers','getTeacher')->name('get_teachers');
+Route::get('/get_guardians','getGuardian')->name('get_guardians');
+Route::get('/get_subjects','getSubject')->name('get_subjects');
+Route::get('/get_students','getStudent')->name('get_students');
+Route::get('/get_grades','getGrade')->name('get_grades');
+Route::get('/get_class_rooms','getClassRoom')->name('get_class_rooms');
+Route::get('/get_daily_schedules','getDailySchedules')->name('get_daily_schedules');
+
+ }) ;

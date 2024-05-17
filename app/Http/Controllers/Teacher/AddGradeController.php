@@ -32,7 +32,7 @@ class AddGradeController extends Controller
             'teacher_id' => 'required|exists:teachers,id',
             'student_id' => 'required|exists:students,id',
             'subject_id' => 'required|exists:subjects,id',
-            'mark' => 'required|string|max:255',
+            'mark' => 'required|string|max:255|min:0',
         ]);
 
         Grade::create($request->all());
@@ -78,8 +78,9 @@ class AddGradeController extends Controller
         return redirect()->route('teacher_grades.index')->with('success', 'Grade updated successfully');
     }
 
-    public function destroy(Grade $grade)
+    public function destroy($id)
     {
+        $grade = Grade::findOrFail($id);
         $grade->delete();
         return redirect()->route('teacher_grades.index')->with('success', 'Grade deleted successfully');
     }
