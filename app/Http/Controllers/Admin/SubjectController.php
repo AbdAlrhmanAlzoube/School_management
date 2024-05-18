@@ -6,12 +6,15 @@ use App\Models\Subject;
 use App\Models\Teacher;
 use Illuminate\Routing\Controller;
 use App\Http\Requests\SubjectStoreRequest;
+use App\Http\Requests\SubjectUpdateRequest;
 
 class SubjectController extends Controller
 {
     public function index()
     {
-        $subjects = Subject::all();
+        
+        $subjects = Subject::with('teacher.user')->get();
+        // dd($subjects);
         return view('Dashboard.admin.pages.subjects.index', compact('subjects'));
     }
 
@@ -42,7 +45,7 @@ class SubjectController extends Controller
         return view('Dashboard.admin.pages.subjects.edit', compact('subject','teachers'));
     }
 
-    public function update(SubjectStoreRequest $request, Subject $subject)
+    public function update(SubjectUpdateRequest $request, Subject $subject)
     {
         $validatedData = $request->validated();
         

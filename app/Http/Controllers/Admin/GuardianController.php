@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Guardian;
 use Illuminate\Routing\Controller;
 use App\Http\Requests\GuardianStoreRequest;
+use App\Http\Requests\GuardianUpdateRequest;
 
 class GuardianController extends Controller
 {
@@ -45,7 +46,7 @@ class GuardianController extends Controller
         return view('Dashboard.Admin.pages.guardians.edit', compact('guardian'));
     }
 
-    public function update(GuardianStoreRequest $request, Guardian $guardian)
+    public function update(GuardianUpdateRequest $request, Guardian $guardian)
     {
         $validatedData = $request->validated();
         

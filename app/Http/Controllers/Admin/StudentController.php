@@ -8,6 +8,7 @@ use App\Models\Student;
 use App\Models\Guardian;
 use Illuminate\Routing\Controller;
 use App\Http\Requests\StudentStoreRequest;
+use App\Http\Requests\StudentUpdateRequest;
 
 class StudentController extends Controller
 {
@@ -51,7 +52,7 @@ class StudentController extends Controller
     return view('Dashboard.Admin.pages.students.edit', compact('student', 'guardians'));
 }
 
-    public function update(StudentStoreRequest $request, Student $student)
+    public function update(StudentUpdateRequest $request, Student $student)
     {
         $validatedData = $request->validated();
         

@@ -19,8 +19,13 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $subject->name }}</td>
                         <td>{{ $subject->description }}</td>
-                        <td>{{ $subject->teacher->user->first_name }} {{ $subject->teacher->user->last_name }}</td> <!-- Display teacher's name -->
                         <td>
+                            @if($subject->teacher && $subject->teacher->user)
+                                {{ $subject->teacher->user->first_name }} {{ $subject->teacher->user->last_name }}
+                            @else
+                                N/A
+                            @endif
+                        </td>                        <td>
                             <a href="{{ route('subjects.show', $subject->id) }}" class="btn btn-info btn-sm" title="View Subject">
                                 <i class="fas fa-eye"></i>
                             </a>

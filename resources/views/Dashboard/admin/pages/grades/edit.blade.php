@@ -1,9 +1,9 @@
-@extends('Dashboard.Teacher.teacher_dashboard')
+@extends('Dashboard.admin.admin_dashboard')
 
-@section('teacher_content')
+@section('content')
 <div class="container">
     <h1>Edit Grade</h1>
-    <form action="{{ route('teacher_grades.update', $grade->id) }}" method="POST">
+    <form action="{{ route('grades.update', $grade->id) }}" method="POST">
         @csrf
         @method('PUT')
 
@@ -45,7 +45,7 @@
             <select name="subject_id" id="subject_id" class="form-control" required>
                 @foreach($subjects as $subject)
                     <option value="{{ $subject->id }}" {{ $grade->subject_id == $subject->id ? 'selected' : '' }}>
-                        {{ $subject.name }}
+                        {{ $subject->name }}
                     </option>
                 @endforeach
             </select>

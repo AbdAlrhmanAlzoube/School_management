@@ -72,7 +72,7 @@ class DailyScheduleController extends Controller
         $teachers = Teacher::all();
         $classrooms = ClassRoom::all();
         
-        return view('Admin.pages.daily_schedules.edit', compact('dailySchedule', 'subjects', 'teachers', 'classrooms'));
+        return view('Dashboard.Admin.pages.daily_schedules.edit', compact('dailySchedule', 'subjects', 'teachers', 'classrooms'));
     }
     
     public function show(DailySchedule $dailySchedule)

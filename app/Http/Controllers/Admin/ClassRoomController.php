@@ -29,7 +29,7 @@ class ClassRoomController extends Controller
 
         ClassRoom::create($validatedData);
 
-        return redirect()->route('get_class_rooms')->with('success', 'Class room created successfully');
+        return redirect()->route('class_rooms.index')->with('success', 'Class room created successfully');
     }
     public function show(ClassRoom $classRoom)
 {

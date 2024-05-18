@@ -11,6 +11,7 @@ use App\Models\ClassRoom;
 use App\Models\Attendance;
 use App\Models\DailySchedule;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class OperationController extends Controller
 {
@@ -22,8 +23,10 @@ class OperationController extends Controller
    
         public function getAttendance()
         {
+            
             $attendances = Attendance::all();
             return view('Dashboard.schoolMentors.pages.attendances.index', compact('attendances'));
+           
         }
         public function getTeacher()
         {

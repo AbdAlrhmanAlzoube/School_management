@@ -69,7 +69,7 @@ Route::get('/children/{child}', [GuardianChildController::class, 'show'])->name(
 
 
 Route::controller(OperationController::class)->group(function () {
-     Route::get('/dashboardSchoolMentor', 'getDashboard');
+     Route::get('/get_school_mentors_dashboard ', 'getDashboard');
      Route::get('/get_attendances', 'getAttendance')->name('get_attendances');
      Route::get('/get_teachers', 'getTeacher')->name('get_teachers');
      Route::get('/get_guardians', 'getGuardian')->name('get_guardians');
@@ -85,7 +85,7 @@ Route::controller(OperationController::class)->group(function () {
 
 Route::get('/dashboard_student',function()
 {
-     return view('Dashboard.student.dashborad');
+     return view('Dashboard.student.dashboard');
 });
 
 Route::get('student_daily_schedules',[DailyScheduleStudentController::class, 'dailySchedule'])
