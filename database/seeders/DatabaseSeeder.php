@@ -1,5 +1,6 @@
 <?php
 
+
     namespace Database\Seeders;
 
     // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -14,21 +15,15 @@
         {
             $this->call([
                 UsersTableSeeder::class,
-                 ClassRoomSeeder::class,
-                SubjectsTableSeeder::class,
-
+                ClassRoomSeeder::class,
                 TeachersTableSeeder::class,
-
-                //  GuardiansTableSeeder::class,
-                 StudentsTableSeeder::class,
-                 AttendancesTableSeeder::class,
-                 SchoolMentorsTableSeeder::class, 
-                 GradesTableSeeder::class,
-                
-              
-                
-                
-                 StudentsTableSeeder::class,
+                SubjectsTableSeeder::class,
+                GuardianTableSeeder::class,
+                StudentsTableSeeder::class,
+                AttendancesTableSeeder::class,
+                SchoolMentorsTableSeeder::class,
+                GradesTableSeeder::class,
+                DailyScheduleTableSeeder::class,
                         ]);
         }
     }

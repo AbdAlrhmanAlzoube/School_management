@@ -16,7 +16,9 @@ class ClassRoomFactory extends Factory
     public function definition(): array
     {
         return [
-            'name'=>$this->faker->word,
+            'address' => $this->faker->address,
+            'name' => $this->faker->word(),
+            'capacity' => $this->faker->numberBetween(20, 50), 
         ];
 
         

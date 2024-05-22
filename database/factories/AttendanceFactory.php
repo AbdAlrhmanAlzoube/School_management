@@ -2,26 +2,24 @@
 
 namespace Database\Factories;
 
+use App\Models\Attendance;
+use App\Models\ClassRoom;
+use App\Models\SchoolMentor;
 use App\Models\Student;
-use App\Models\Teacher;
 use Illuminate\Database\Eloquent\Factories\Factory;
-
 
 class AttendanceFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-    public function definition(): array
+    protected $model = Attendance::class;
+
+    public function definition()
     {
         return [
-            'teacher_id' => Teacher::inRandomOrder()->first()->id,
-            'student_id' => Student::inRandomOrder()->first()->id,
-            'attendance_status' => $this->faker->boolean(),
+            'school_mentor_id' => SchoolMentor::factory(),
+            'class_room_id' => ClassRoom::factory(),
+            'student_id' => Student::factory(),
             'attendance_date' => $this->faker->date(),
-           
+            'attendance_status' => $this->faker->boolean(),
         ];
     }
 }

@@ -19,6 +19,9 @@ class SchoolMentorFactory extends Factory
     {
         return [
             'user_id' => User::inRandomOrder()->first()->id,
+            'supervising_class' => $this->faker->word(),
+
+
         ];
     }
 }

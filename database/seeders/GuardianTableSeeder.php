@@ -3,9 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Student;
+use App\Models\Guardian;
 
-class StudentsTableSeeder extends Seeder
+class GuardianTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class StudentsTableSeeder extends Seeder
      */
     public function run()
     {
-        Student::factory()->count(5)->create();
+        Guardian::factory()->count(10)->create();
     }
 }

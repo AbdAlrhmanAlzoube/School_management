@@ -2,24 +2,20 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
+// database/factories/GuardianFactory.php
+
 use App\Models\Guardian;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-
-
 class GuardianFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-    public function definition(): array
+    protected $model = Guardian::class;
+
+    public function definition()
     {
         return [
-             'user_id' => User::inRandomOrder()->first()->id,
-
+            'user_id' => \App\Models\User::factory(), // Assuming a Guardian belongs to a User
+            // Add other fields as necessary
         ];
     }
 }

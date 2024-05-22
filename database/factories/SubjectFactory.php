@@ -16,6 +16,7 @@ class SubjectFactory extends Factory
     public function definition(): array
     {
         return [
+            'teacher_id' => Teacher::factory(),
             'name' => $this->faker->word,
             'description' => $this->faker->paragraph,
         ];

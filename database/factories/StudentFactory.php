@@ -2,28 +2,22 @@
 
 namespace Database\Factories;
 
-use App\Models\Subject;
-use App\Models\Teacher;
-use App\Models\Guardian;
-use App\Models\ClassRoom;
-use App\Models\Attendance;
+use App\Models\Student;
 use App\Models\User;
+use App\Models\Guardian;
 use Illuminate\Database\Eloquent\Factories\Factory;
-
 
 class StudentFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-    public function definition(): array
+    protected $model = Student::class;
+
+    public function definition()
     {
         return [
-            'user_id' => User::inRandomOrder()->first()->id,
-            'guardian_id' => Guardian::inRandomOrder()->first()->id,
-            'educational_level' => $this->faker->randomElement(['Seventh ', 'Eighth ', 'Ninth']),
+            'user_id' => User::factory(), // Create a new User or reference an existing one
+            'guardian_id' => Guardian::factory(), // Create a new Guardian or reference an existing one
+            'educational_level' => $this->faker->randomElement(['primary', 'secondary', 'tertiary']),
+            'birth_date' => $this->faker->date(),
         ];
     }
 }

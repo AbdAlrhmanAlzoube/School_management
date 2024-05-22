@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\DailySchedule;
 use Illuminate\Database\Seeder;
-use App\Models\Student;
 
-class StudentsTableSeeder extends Seeder
+class DailyScheduleTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class StudentsTableSeeder extends Seeder
      */
     public function run()
     {
-        Student::factory()->count(5)->create();
+        DailySchedule::factory()->count(5)->create();
     }
 }

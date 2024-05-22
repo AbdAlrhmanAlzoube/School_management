@@ -2,8 +2,12 @@
 
 namespace App\Models;
 
+
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 
 class DailySchedule extends Model
 {
@@ -12,6 +16,8 @@ class DailySchedule extends Model
      *
      * @var array
      */
+    use HasFactory;
+
     protected $fillable = [
         'day_name',
         'educational_level',
