@@ -14,21 +14,18 @@
         {
             $this->call([
                 UsersTableSeeder::class,
-                 ClassRoomSeeder::class,
-                SubjectsTableSeeder::class,
-
-                TeachersTableSeeder::class,
-
-                //  GuardiansTableSeeder::class,
-                 StudentsTableSeeder::class,
-                 AttendancesTableSeeder::class,
-                 SchoolMentorsTableSeeder::class, 
-                 GradesTableSeeder::class,
-                
-              
-                
-                
-                 StudentsTableSeeder::class,
-                        ]);
+//                 ClassRoomSeeder::class,
+//                SubjectsTableSeeder::class,
+//
+//                TeachersTableSeeder::class,
+//
+//                GradesTableSeeder::class,
+//
+//                //  GuardiansTableSeeder::class,
+//                 StudentsTableSeeder::class,
+//                 AttendancesTableSeeder::class,
+//                 SchoolMentorsTableSeeder::class,
+//                 StudentsTableSeeder::class,
+            ]);
         }
     }

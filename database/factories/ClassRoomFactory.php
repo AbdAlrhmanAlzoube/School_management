@@ -17,8 +17,9 @@ class ClassRoomFactory extends Factory
     {
         return [
             'name'=>$this->faker->word,
+            'address'=>$this->faker->word,
         ];
 
-        
+
     }
 }

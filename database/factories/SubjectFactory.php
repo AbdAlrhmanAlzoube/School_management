@@ -18,6 +18,7 @@ class SubjectFactory extends Factory
         return [
             'name' => $this->faker->word,
             'description' => $this->faker->paragraph,
+            'teacher_id' => Teacher::factory()->create()->id,
         ];
     }
 }
