@@ -19,6 +19,7 @@ class SubjectFactory extends Factory
             'teacher_id' => Teacher::factory(),
             'name' => $this->faker->word,
             'description' => $this->faker->paragraph,
+            'teacher_id' => Teacher::factory()->create()->id,
         ];
     }
 }

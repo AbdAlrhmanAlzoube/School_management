@@ -1,6 +1,5 @@
 <aside class="mdc-drawer mdc-drawer--dismissible mdc-drawer--open">
     <br>
-    <h1><p>Teacher Dashboard</p></h1>
     <div class="mdc-drawer__content">
         <div class="mdc-list-group">
             <nav class="mdc-list mdc-drawer-menu">
@@ -26,7 +25,7 @@
                         </nav>
                     </div>
                 </div>
-                
+
                 <!-- Student Section -->
                 <div class="mdc-list-item mdc-drawer-item">
                     <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel" data-target="student-sub-menu">
@@ -44,7 +43,7 @@
                         </nav>
                     </div>
                 </div>
-                
+
                 <!-- Daily Schedules Section -->
                 <div class="mdc-list-item mdc-drawer-item">
                     <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel" data-target="schedules-sub-menu">
@@ -59,7 +58,7 @@
                                     List Schedules
                                 </a>
                             </div>
-                          
+
                         </nav>
                     </div>
                 </div>
@@ -87,9 +86,4 @@
         </nav>
     </div>
 </div>
-
-
-            </nav>
-        </div>
-    </div>
 </aside>

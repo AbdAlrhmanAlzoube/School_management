@@ -34,7 +34,7 @@ class UserFactory extends Factory
             'image' => $this->faker->imageUrl(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
+            'password' => Hash::make('password'),
             'remember_token' => Str::random(10),
         ];
     }

@@ -18,9 +18,9 @@ class ClassRoomFactory extends Factory
         return [
             'address' => $this->faker->address,
             'name' => $this->faker->word(),
-            'capacity' => $this->faker->numberBetween(20, 50), 
+            'capacity' => $this->faker->numberBetween(20, 50),
         ];
 
-        
+
     }
 }
