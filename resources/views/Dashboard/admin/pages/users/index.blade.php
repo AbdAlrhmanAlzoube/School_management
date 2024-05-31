@@ -6,6 +6,16 @@
         <div class="card-body">
             <h1 class="card-title">All Users</h1>
             <div class="table-responsive pt-3">
+                
+<form action="{{ URL::current() }}" method="get" class="d-flex justify-content-between mb-4">
+    <x-form-input name="first_name" placeholder="first_name" class="mx-2" :value="request('first_name')" />
+    <select name="gender" class="form-control mx-2">
+      <option value="">All</option>
+      <option value="male" @selected(request('gander')==='male')>Male</option>
+      <option value="female"@selected(request('gander')==='female')>Female</option>
+    </select><br>
+    <button class="btn btn-dark mx-2">Filter</button>
+  </form>
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
@@ -58,4 +68,5 @@
         </div>
     </div>
 </div>
+{{ $users->links() }}
 @endsection

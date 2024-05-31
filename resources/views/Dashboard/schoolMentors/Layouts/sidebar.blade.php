@@ -1,6 +1,8 @@
 <aside class="mdc-drawer mdc-drawer--dismissible mdc-drawer--open">
-    <p>Admin dashboard</p>
-    s<div class="mdc-drawer__content">
+    <p>School Mentoe
+
+    </p>
+    <div class="mdc-drawer__content">
         <div class="mdc-list-group">
             <nav class="mdc-list mdc-drawer-menu">
 

@@ -3,9 +3,16 @@
 @section('content')
     <div class="container">
         <h1>All School Mentors</h1>
-        @if($schoolMentors->isEmpty())
-            <p>No school mentors found.</p>
-        @else
+        <form action="{{ URL::current() }}" method="get" class="d-flex justify-content-between mb-4">
+            <x-form-input name="first_name" placeholder="first_name" class="mx-2" :value="request('first_name')" />
+            <select name="supervising_class" class="form-control mx-2">
+              <option value="">All</option>
+              <option value="seventh" @selected(request('supervising_class')==='seventh')>Seventh</option>
+              <option value="eighth"@selected(request('supervising_class')==='eighth')>Eighth</option>
+              <option value="ninth"@selected(request('supervising_class')==='ninth')>Ninth</option>
+            </select><br>
+            <button class="btn btn-dark mx-2">Filter</button>
+          </form>
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -44,6 +51,6 @@
                     @endforeach
                 </tbody>
             </table>
-        @endif
     </div>
+    {{ $schoolMentors->links() }}
 @endsection

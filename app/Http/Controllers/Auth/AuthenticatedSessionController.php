@@ -33,8 +33,12 @@ class AuthenticatedSessionController extends Controller
         } elseif (str_ends_with($request->email, '@student.com')) {
             return redirect('/dashboard_student');
         } elseif (str_ends_with($request->email, '@admin.com')) {
-            return redirect('/admin_dashboard'); // Assuming you have an admin dashboard
+            return redirect('/admin-dashboard');
         }
+        elseif   (str_ends_with($request->email,'@schoolmentor.com')){
+                return redirect('/get_school_mentors_dashboard');}
+        elseif   (str_ends_with($request->email,'@guardian.com')){
+            return redirect('/guardian');}
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 

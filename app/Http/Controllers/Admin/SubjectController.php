@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Subject;
 use App\Models\Teacher;
 use Illuminate\Routing\Controller;
+use Illuminate\Foundation\Auth\User;
 use App\Http\Requests\SubjectStoreRequest;
 use App\Http\Requests\SubjectUpdateRequest;
 
@@ -12,9 +13,9 @@ class SubjectController extends Controller
 {
     public function index()
     {
-        
-        $subjects = Subject::with('teacher.user')->get();
-        // dd($subjects);
+        $request=request();
+        $subjects = Subject::filterSubjects($request->only('name'))
+        ->with('teacher.user')->paginate(10);
         return view('Dashboard.admin.pages.subjects.index', compact('subjects'));
     }
 
@@ -41,8 +42,9 @@ class SubjectController extends Controller
 
     public function edit(Subject $subject)
     {
+        $users=User::all();
         $teachers=Teacher::all();
-        return view('Dashboard.admin.pages.subjects.edit', compact('subject','teachers'));
+        return view('Dashboard.admin.pages.subjects.edit', compact('subject','teachers','users'));
     }
 
     public function update(SubjectUpdateRequest $request, Subject $subject)

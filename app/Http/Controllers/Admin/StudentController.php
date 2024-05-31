@@ -14,7 +14,9 @@ class StudentController extends Controller
 {
     public function index()
     {
-        $students = Student::all();
+        $request=request();
+        $students = Student::filterStudents($request->only(['first_name','educational_level']))
+        ->paginate(10);
         return view('Dashboard.Admin.pages.students.index', compact('students'));
     }
 

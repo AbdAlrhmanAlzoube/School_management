@@ -6,19 +6,22 @@
         <form action="{{ route('daily_schedules.update', $dailySchedule->id) }}" method="POST">
             @csrf
             @method('PUT')
+            
             @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
             @endif
+            
             <div class="form-group">
                 <label for="day_name">Day Name</label>
                 <input type="text" name="day_name" id="day_name" class="form-control" value="{{ $dailySchedule->day_name }}" required>
             </div>
+            
             <div class="form-group">
                 <label for="subject_id">Select Subject</label>
                 <select name="subject_id" id="subject_id" class="form-control" required>
@@ -28,18 +31,23 @@
                     @endforeach
                 </select>
             </div>
+            
             <div class="form-group">
                 <label for="teacher_id">Select Teacher</label>
                 <select name="teacher_id" id="teacher_id" class="form-control" required>
                     <option value="">Select Teacher</option>
                     @foreach($teachers as $teacher)
-                    <option value="{{ $teacher->id }}" @if($teacher->id == $dailySchedule->teacher_id) selected @endif>
-                        {{ $teacher->user->first_name }} {{ $teacher->user->last_name }}
-                    </option>
-                @endforeach
-                
+                        <option value="{{ $teacher->id }}" @if($teacher->id == $dailySchedule->teacher_id) selected @endif>
+                            @if ($teacher->user)
+                                {{ $teacher->user->first_name }} {{ $teacher->user->last_name }}
+                            @else
+                                No User Found
+                            @endif
+                        </option>
+                    @endforeach
                 </select>
             </div>
+            
             <div class="form-group">
                 <label for="class_room_id">Select Class Room</label>
                 <select name="class_room_id" id="class_room_id" class="form-control" required>
@@ -49,14 +57,17 @@
                     @endforeach
                 </select>
             </div>
+            
             <div class="form-group">
                 <label for="start_time">Start Time</label>
                 <input type="time" name="start_time" id="start_time" class="form-control" value="{{ $dailySchedule->start_time }}" required>
             </div>
+            
             <div class="form-group">
                 <label for="end_time">End Time</label>
                 <input type="time" name="end_time" id="end_time" class="form-control" value="{{ $dailySchedule->end_time }}" required>
             </div>
+            
             <div class="form-group">
                 <label for="educational_level">Educational Level</label>
                 <select name="educational_level" id="educational_level" class="form-control" required>

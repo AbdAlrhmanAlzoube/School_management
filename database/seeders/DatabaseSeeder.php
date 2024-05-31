@@ -23,7 +23,7 @@
                 AttendancesTableSeeder::class,
                 SchoolMentorsTableSeeder::class,
                 GradesTableSeeder::class,
-                DailyScheduleTableSeeder::class,
+              DailyScheduleTableSeeder::class,
                         ]);
         }
     }

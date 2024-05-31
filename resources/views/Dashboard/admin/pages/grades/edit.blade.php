@@ -23,7 +23,7 @@
             <select name="teacher_id" id="teacher_id" class="form-control" required>
                 @foreach($teachers as $teacher)
                     <option value="{{ $teacher->id }}" {{ $grade->teacher_id == $teacher->id ? 'selected' : '' }}>
-                        {{ $teacher->user->first_name }} {{ $teacher->user->last_name }}
+                        {{ $teacher->user ? $teacher->user->first_name . ' ' . $teacher->user->last_name : 'No User Found' }}
                     </option>
                 @endforeach
             </select>
@@ -34,7 +34,7 @@
             <select name="student_id" id="student_id" class="form-control" required>
                 @foreach($students as $student)
                     <option value="{{ $student->id }}" {{ $grade->student_id == $student->id ? 'selected' : '' }}>
-                        {{ $student->user->first_name }} {{ $student->user->last_name }}
+                        {{ $student->user ? $student->user->first_name . ' ' . $student->user->last_name : 'No User Found' }}
                     </option>
                 @endforeach
             </select>
@@ -53,7 +53,7 @@
 
         <div class="form-group">
             <label for="mark">Mark</label>
-            <input type="text" name="mark" id="mark" class="form-control" required>
+            <input type="text" name="mark" id="mark" class="form-control" value="{{ old('mark', $grade->mark) }}" required>
         </div>
 
         <button type="submit" class="btn btn-primary">Update</button>

@@ -19,7 +19,6 @@ class DailyScheduleController extends Controller
 
     public function create()
     {
-        // Fetch necessary data for creating a new daily schedule
         $subjects = Subject::all();
         $teachers = Teacher::all();
         $classrooms = ClassRoom::all();
@@ -39,7 +38,6 @@ class DailyScheduleController extends Controller
             'educational_level' => ['required', 'string', 'max:255'],
         ]);
         
-        // Create a new daily schedule
         $dailySchedule = DailySchedule::create($validatedData);
         
         return redirect()->route('daily_schedules.index')->with('success', 'Daily schedule created successfully');
@@ -66,8 +64,6 @@ class DailyScheduleController extends Controller
 
     public function edit(DailySchedule $dailySchedule)
     {
-        // Fetch necessary data for editing the daily schedule, like subjects, teachers, classrooms.
-        // Adjust as per your requirements.
         $subjects = Subject::all();
         $teachers = Teacher::all();
         $classrooms = ClassRoom::all();

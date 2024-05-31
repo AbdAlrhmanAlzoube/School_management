@@ -10,7 +10,7 @@ class ClassRoomController extends Controller
 {
     public function index()
     {
-        $classRooms = ClassRoom::all();
+        $classRooms = ClassRoom::paginate(10);
         return view('Dashboard.admin.pages.class_rooms.index', compact('classRooms'));
     }
 

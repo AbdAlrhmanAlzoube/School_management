@@ -21,7 +21,6 @@ class DailyScheduleFactory extends Factory
         $uniqueDays = array_diff($weekdays, $this->usedDayNames);
         $dayName = $this->faker->randomElement($uniqueDays);
 
-        // Add used day name to prevent repetition
         $this->usedDayNames[] = $dayName;
 
         return [

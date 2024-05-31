@@ -29,9 +29,7 @@
                 </div>
                 
                 
-                <!-- More Sections -->
-                <!-- Add other sections as needed -->
-                
+             
             </nav>
         </div>
     </div>

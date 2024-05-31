@@ -13,6 +13,6 @@ class AttendancesTableSeeder extends Seeder
      */
     public function run(): void
     {
-        Attendance::factory()->count(10)->create();
+        Attendance::factory()->count(25)->create();
     }
 }

@@ -14,9 +14,9 @@ class StudentFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => User::factory(), // Create a new User or reference an existing one
-            'guardian_id' => Guardian::factory(), // Create a new Guardian or reference an existing one
-            'educational_level' => $this->faker->randomElement(['primary', 'secondary', 'tertiary']),
+            'user_id' => User::factory(),
+            'guardian_id' => Guardian::factory(), 
+            'educational_level' => $this->faker->randomElement(['ninth', 'eighth', 'seventh']),
             'birth_date' => $this->faker->date(),
         ];
     }

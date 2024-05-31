@@ -19,7 +19,6 @@ return new class extends Migration
             $table->id();
             $table->string('day_name');
             $table->string('educational_level');
-
             $table->foreignIdFor(Subject::class);
             $table->foreignIdFor(Teacher::class);
             $table->foreignIdFor(ClassRoom::class);

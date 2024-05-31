@@ -14,6 +14,6 @@ class GradesTableSeeder extends Seeder
      */
     public function run(): void
     {
-       Grade::factory()->count(10)->create();
+       Grade::factory()->count(25)->create();
     }
 }

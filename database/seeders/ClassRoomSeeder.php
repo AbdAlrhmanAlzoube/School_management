@@ -13,7 +13,7 @@ class ClassRoomSeeder extends Seeder
      */
     public function run(): void
     {
-        ClassRoom::factory()->count(4)->create();
+        ClassRoom::factory()->count(25)->create();
 
     }
 }

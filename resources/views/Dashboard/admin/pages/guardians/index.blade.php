@@ -3,6 +3,10 @@
 @section('content')
     <div class="container">
         <h1>All Guardians</h1>
+        <form action="{{ URL::current() }}" method="get" class="d-flex justify-content-between mb-4">
+            <x-form-input name="first_name" placeholder="first_name" class="mx-2" :value="request('first_name')" />
+            <button class="btn btn-dark mx-2">Search</button>
+        </form>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -40,4 +44,5 @@
             </tbody>
         </table>
     </div>
+    {{$guardians->links() }}
 @endsection

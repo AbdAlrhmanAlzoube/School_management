@@ -13,7 +13,9 @@ class GradeController extends Controller
 {
     public function index()
     {
-        $grades = Grade::all();
+        $request=request();
+        $grades = Grade::filterGrades($request->only(['first_name','name']))
+        ->paginate(10);
         return view('Dashboard.admin.pages.grades.index', compact('grades'));
     }
 

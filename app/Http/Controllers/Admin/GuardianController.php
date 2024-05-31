@@ -12,7 +12,9 @@ class GuardianController extends Controller
 {
     public function index()
     {
-        $guardians = Guardian::all();
+        $request=request();
+        $guardians = Guardian::filterGuardians($request->only('first_name'))
+        ->paginate(10);
         return view('Dashboard.Admin.pages.guardians.index', compact('guardians'));
     }
 

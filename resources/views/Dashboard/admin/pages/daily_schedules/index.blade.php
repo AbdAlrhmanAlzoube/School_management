@@ -23,11 +23,17 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $dailySchedule->day_name }}</td>
                         <td>{{ $dailySchedule->subject->name }}</td>
-                        <td>{{ $dailySchedule->teacher->user->first_name }} {{ $dailySchedule->teacher->user->last_name }}</td>
+                        <td>
+                            @if ($dailySchedule->teacher && $dailySchedule->teacher->user)
+                                {{ $dailySchedule->teacher->user->first_name }} {{ $dailySchedule->teacher->user->last_name }}
+                            @else
+                                No Teacher Found
+                            @endif
+                        </td>
                         <td>{{ $dailySchedule->classRoom->name }}</td>
                         <td>{{ $dailySchedule->start_time }}</td>
                         <td>{{ $dailySchedule->end_time }}</td>
-                        <td>{{ $dailySchedule->educational_level }}</td> <!-- Displaying educational level -->
+                        <td>{{ $dailySchedule->educational_level }}</td>
                         <td>
                             <a href="{{ route('daily_schedules.show', $dailySchedule->id) }}" class="btn btn-info btn-sm" title="View Daily Schedule">
                                 <i class="fas fa-eye"></i>

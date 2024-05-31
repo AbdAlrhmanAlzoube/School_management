@@ -13,7 +13,9 @@ class TeacherController extends Controller
 {
     public function index()
     {
-        $teachers = Teacher::all();
+        $request=request();
+        $teachers = Teacher::filterTeachers($request->only('first_name'))
+        ->paginate(10);
         return view('Dashboard.Admin.pages.teachers.index', compact('teachers'));
     }
 

@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\Traits\Filterable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Factories\HasFactory; // Import the HasFactory trait
+use Illuminate\Database\Eloquent\Factories\HasFactory; 
 
 class Guardian extends Model
 {
-    use HasFactory; // Use the HasFactory trait
+    use HasFactory,Filterable; 
 
     /**
      * The attributes that are mass assignable.

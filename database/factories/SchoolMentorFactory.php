@@ -19,7 +19,7 @@ class SchoolMentorFactory extends Factory
     {
         return [
             'user_id' => User::inRandomOrder()->first()->id,
-            'supervising_class' => $this->faker->word(),
+            'supervising_class' => $this->faker->randomElement(['ninth', 'eighth', 'seventh']),
 
 
         ];

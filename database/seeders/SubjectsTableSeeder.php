@@ -2,19 +2,33 @@
 
 namespace Database\Seeders;
 
-use App\Models\Subject;
-use App\Models\Teacher;
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Subject;
 
 class SubjectsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
+     *
+     * @return void
      */
-    public function run(): void
+    public function run()
     {
-       
-        Subject::factory()->count(10)->create();
+        $subjects = [
+            'Science',
+            'English',
+            'Arabic',
+            'Sports',
+            'Mathematics',
+            'Drawing',
+            'Social Studies'
+        ];
+
+        foreach ($subjects as $subjectName) {
+            Subject::factory()->create([
+                'name' => $subjectName,
+                'description' => substr(fake()->paragraph, 0, 50),
+            ]);
+        }
     }
 }

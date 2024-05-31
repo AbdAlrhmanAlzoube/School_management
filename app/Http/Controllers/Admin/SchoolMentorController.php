@@ -12,7 +12,10 @@ class SchoolMentorController extends Controller
 {
     public function index()
     {
-        $schoolMentors = SchoolMentor::all();
+        $request=request();
+        $schoolMentors = SchoolMentor::filterSchoolMentors
+        ($request->only(['first_name','supervising_class']))
+        ->paginate(10);
         return view('Dashboard.Admin.pages.school_mentors.index', compact('schoolMentors'));
     }
 

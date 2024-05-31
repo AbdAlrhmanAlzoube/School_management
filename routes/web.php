@@ -29,7 +29,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/admin_dashboard', function () {
+Route::get('/admin-dashboard', function () {
     return view('Dashboard.Admin.admin_dashboard');
 });
 
@@ -94,8 +94,8 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';

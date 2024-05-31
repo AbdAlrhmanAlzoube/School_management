@@ -15,7 +15,7 @@ class SchoolMentorsTableSeeder extends Seeder
     {
        
       
-            SchoolMentor::factory()->count(2)->create();
+            SchoolMentor::factory()->count(25)->create();
        
     }
 }

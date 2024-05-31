@@ -6,13 +6,13 @@
         <form action="{{ route('daily_schedules.store') }}" method="POST">
             @csrf
             @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
             @endif
             <div class="form-group">
                 <label for="day_name">Day Name</label>
@@ -32,7 +32,11 @@
                 <select name="teacher_id" id="teacher_id" class="form-control" required>
                     <option value="">Select Teacher</option>
                     @foreach($teachers as $teacher)
-                        <option value="{{ $teacher->id }}">{{ $teacher->user->first_name }}  {{ $teacher->user->last_name }}</option>
+                        @if ($teacher->user)
+                            <option value="{{ $teacher->id }}">{{ $teacher->user->first_name }} {{ $teacher->user->last_name }}</option>
+                        @else
+                            <option value="{{ $teacher->id }}">No User Found</option>
+                        @endif
                     @endforeach
                 </select>
             </div>
