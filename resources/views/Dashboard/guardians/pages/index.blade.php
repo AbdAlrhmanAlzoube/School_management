@@ -27,7 +27,7 @@
                             <a href="{{ route('children.show', ['child' => $student->id]) }}" class="btn btn-info" title="View Details">
                                 <i class="fas fa-eye"></i> <!-- FontAwesome icon for 'view' -->
                             </a>
-                            {{  }}
+                      
                             <!-- Delete with Icon -->
                             <form action="{{ route('children.destroy', ['child' => $student->id]) }}" method="post" style="display:inline;">
                                 @csrf

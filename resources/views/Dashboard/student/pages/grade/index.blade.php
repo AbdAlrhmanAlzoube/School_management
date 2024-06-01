@@ -1,6 +1,6 @@
-@extends('Dashboard.schoolMentors.dashboard')
+@extends('Dashboard.student.dashboard')
 
-@section('schoolmentors_content')
+@section('student_content')
     <div class="container">
         <h1>All Grades</h1>
         <form action="{{ URL::current() }}" method="get" class="d-flex justify-content-between mb-4">

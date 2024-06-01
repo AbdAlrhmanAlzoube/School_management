@@ -88,6 +88,8 @@ Route::get('/dashboard_student',function()
 
 Route::get('student_daily_schedules',[DailyScheduleStudentController::class, 'dailySchedule'])
     ->name('student_daily_schedules');
+Route::get('student_grade',[DailyScheduleStudentController::class, 'getGrade'])
+    ->name('student_grade');
 
 
 Route::get('/', function () {

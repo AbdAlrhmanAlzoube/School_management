@@ -3,6 +3,15 @@
 @section('teacher_content')
     <div class="container">
         <h1>All Attendance Records</h1>
+        <form action="{{ URL::current() }}" method="get" class="d-flex justify-content-between mb-4">
+            <x-form-input name="first_name" placeholder="First Name" class="mx-2" :value="request('first_name')" />
+            <select name="attendance_status" class="form-control mx-2">
+                <option value="">All</option>
+                <option value="Present" @selected(request('attendance_status') === 'Present')>Present</option>
+                <option value="Absent" @selected(request('attendance_status') === 'Absent')>Absent</option>
+            </select>
+            <button class="btn btn-dark mx-2">Filter</button>
+        </form>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -19,7 +28,7 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $attendance->student->user->first_name }} {{ $attendance->student->user->last_name }}</td>
                         <td>{{ $attendance->attendance_date }}</td>
-                        <td>{{ $attendance->attendance_status == 1 ? 'Present' : 'Absent' }}</td>
+                        <td>{{ $attendance->attendance_status ? 'Present' : 'Absent' }}</td>
                         <td>
                             <a href="{{ route('attendances.show', $attendance->id) }}" class="btn btn-info btn-sm" title="View Attendance">
                                 <i class="fas fa-eye"></i>
@@ -39,5 +48,6 @@
                 @endforeach
             </tbody>
         </table>
+        {{ $attendances->links() }}
     </div>
 @endsection

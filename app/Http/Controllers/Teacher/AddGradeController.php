@@ -13,8 +13,9 @@ use Illuminate\Http\Request;
 class AddGradeController extends Controller
 {
     public function index()
-    {
-        $grades = Grade::with(['teacher', 'student', 'subject'])->get(); // Eager load relationships
+    {  $request=request();
+        $grades = Grade::filterGrades($request->only(['first_name','name']))
+        ->paginate(10);
         return view('Dashboard.teacher.pages.grades.index', compact('grades'));
     }
 

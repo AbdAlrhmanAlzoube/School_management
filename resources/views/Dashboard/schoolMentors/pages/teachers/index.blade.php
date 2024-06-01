@@ -3,6 +3,10 @@
 @section('schoolmentors_content')
     <div class="container">
         <h1>All Teachers</h1>
+            <form action="{{ URL::current() }}" method="get" class="d-flex justify-content-between mb-4">
+            <x-form-input name="first_name" placeholder="first_name" class="mx-2" :value="request('first_name')" />
+            <button class="btn btn-dark mx-2">Search</button>
+        </form>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -10,7 +14,6 @@
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Email</th>
-                    {{-- <th>Actions</th> --}}
                 </tr>
             </thead>
             <tbody>
@@ -20,24 +23,11 @@
                         <td>{{ $teacher->user->first_name }}</td>
                         <td>{{ $teacher->user->last_name }}</td>
                         <td>{{ $teacher->user->email }}</td>
-                        {{-- <td>
-                            <a href="{{ route('teachers.show', $teacher->id) }}" class="btn btn-info btn-sm" title="View Teacher">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                            <a href="{{ route('teachers.edit', $teacher->id) }}" class="btn btn-primary btn-sm" title="Edit Teacher">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <form action="{{ route('teachers.destroy', $teacher->id) }}" method="POST" style="display: inline-block;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm" title="Delete Teacher" onclick="return confirm('Are you sure you want to delete this teacher?')">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </form>
-                        </td> --}}
+                       
                     </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
+    {{$teachers->links()  }}
 @endsection

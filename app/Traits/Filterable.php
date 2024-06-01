@@ -86,6 +86,21 @@ trait Filterable
           
         });
     }
+    public function scopeFilterAttendances(Builder $builder, $filters)
+    {
+        $builder->when($filters['first_name'] ?? false, function ($builder, $value) {
+            $builder->whereHas('student.user', function ($query) use ($value) {
+                $query->where('first_name', 'like', "%{$value}%");
+            });
+        });
+
+        $builder->when($filters['attendance_status'] ?? false, function ($builder, $value) {
+            $status = $value === 'Present' ? 1 : ($value === 'Absent' ? 0 : null);
+            if ($status !== null) {
+                $builder->where('attendance_status', '=', $status);
+            }
+        });
+    }
     public function scopeFilterAdvertisements(Builder $builder, $filters)
     {
         $builder->when($filters['status'] ?? false, function ($builder, $value) {

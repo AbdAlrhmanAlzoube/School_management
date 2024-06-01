@@ -8,13 +8,16 @@ use App\Models\ClassRoom;
 use App\Models\Attendance;
 use App\Models\SchoolMentor;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller; // Import Controller for Laravel conventions
+use Illuminate\Routing\Controller; 
 
 class AttendanceController extends Controller 
 {
     public function index()
     {
-        $attendances = Attendance::all();
+        $request=request();
+        $attendances = Attendance::filterAttendances
+        ($request->only(['first_name','attendance_status']))
+        ->paginate(10);
         return view('Dashboard.teacher.pages.attendances.index', compact('attendances'));
     }
 

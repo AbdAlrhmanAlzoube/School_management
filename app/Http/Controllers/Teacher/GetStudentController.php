@@ -8,7 +8,9 @@ use App\Http\Controllers\Controller;
 class GetStudentController extends Controller
 {  public function index()
     {
-        $students = Student::all();
+        $request=request();        
+        $students = Student::filterStudents($request->only('first_name'))
+        ->paginate(10);;
         return view('Dashboard.teacher.pages.students.index', compact('students'));
     }
 }
